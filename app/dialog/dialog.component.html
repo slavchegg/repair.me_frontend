@@ -1,0 +1,15 @@
+<h1>Диалог</h1>
+<table>
+  <tr>
+    <th>Отправитель</th>
+    <th>Содержимое</th>
+    <th colspan="2">&nbsp;</th>
+  </tr>
+  <tr *ngFor="let message of messages">
+    <td>{{message.interlocutor}}</td>
+    <td>{{message.content}}</td>
+  </tr>
+</table>
+<br>
+<input type="text" [(ngModel)]="mes.content" name="content">
+<input type="button" (click)="sendMessage(mes.content)" value="Отправить"> <br>

@@ -1,0 +1,15 @@
+<h1>Сервисы</h1>
+  <table *ngFor="let service of (services|async)">
+    <tr>
+      <td><h3> <a [routerLink]="['/services', service.name]">{{service.name}}</a></h3></td>
+    </tr>
+    <tr>
+      <td class="second-imp">{{service.address}}</td>
+    </tr>
+    <td>
+      <br>
+      <a [routerLink]="['/services', service.name]">
+        <img class="cover" *ngIf="service.photoHref" [src]="service.photoHref">
+      </a>
+    </td>
+  </table>

@@ -1,0 +1,31 @@
+<ng-container>
+  <h1>Заяка</h1>
+  <div class="centered">
+    <form #requestform="ngForm" (ngSubmit)="submitRequest()">
+      <p>Марка<br>
+        <select [(ngModel)]="car.make" (ngModelChange)="getModels()" name="make" >
+          <option [ngValue]="carName" *ngFor="let carName of (carNames)">
+            {{carName}}
+          </option>
+        </select>
+      </p>
+      <p>Модель<br>
+        <select [(ngModel)]="car.model" (ngModelChange)="getModifications()" name="carModel">
+          <option [ngValue]="carModel" *ngFor="let carModel of (carModels)">
+            {{carModel}}
+          </option>
+        </select>
+      </p>
+      <p>Модификация<br>
+        <select [(ngModel)]="car.modification" name="carModification">
+          <option [ngValue]="carModification" *ngFor="let carModification of (carModifications)">
+            {{carModification}}
+          </option>
+        </select>
+      </p>
+      <p>Опишите проблему<br><input [(ngModel)]="request.content" name="content" required maxlength="500"></p>
+      <p>Укажите номер телефона<br><input type='tel' [(ngModel)]="request.vin" name="phone" required maxlength="10"></p>
+      <p><input type="submit" value="Отправить" [disabled]="!requestform.valid"></p>
+    </form>
+  </div>
+</ng-container>

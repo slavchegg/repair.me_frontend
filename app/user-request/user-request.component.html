@@ -1,0 +1,16 @@
+<ng-container>
+  <h1>Ваша Заяка</h1>
+  <div class="centered">
+    <form #requestform="ngForm" (ngSubmit)="submitRequest()">
+      <p>Выберете Авто<br>
+        <select [(ngModel)]="request.car" name="carModification">
+          <option [ngValue]="car" *ngFor="let car of (cars)">
+            {{car.modification}}
+          </option>
+        </select>
+      </p>
+      <p>Опишите проблему<br><input [(ngModel)]="request.content" name="content" required maxlength="500"></p>
+      <p><input type="submit" value="Отправить" [disabled]="!requestform.valid"></p>
+    </form>
+  </div>
+</ng-container>

@@ -1,0 +1,12 @@
+<h1>Ваш сервис</h1>
+<h1>При регистрации сервиса вы будете удалены из предыдущего места работы!</h1>
+<div class="centered">
+  <form #userform="ngForm" (ngSubmit)="submitService()">
+    <p>Название<br><input [(ngModel)]="service.name" name="name"></p>
+    <p>Описание<br><input [(ngModel)]="service.about" name="about"></p>
+    <p>Ссылка<br><input [(ngModel)]="service.href" name="href"></p>
+    <p>Телефон<br><input type='tel'[(ngModel)]="service.phone" name="phone" required [maxLength]="10"></p>
+    <p>Часы работы<br><input [(ngModel)]="service.hours" name="hours" required maxlength="5"></p>
+    <p><input type="submit" value="Сохранить" [disabled]="!userform.valid"></p>
+  </form>
+</div>

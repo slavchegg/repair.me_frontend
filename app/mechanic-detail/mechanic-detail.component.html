@@ -1,0 +1,32 @@
+<table class="main">
+  <tr>
+    <td rowspan="3" class="image">
+      <img *ngIf="mechanic.photoHref" [src]="mechanic.photoHref">
+    </td>
+    <td><h1>{{mechanic.name}}</h1></td>
+  </tr>
+  <tr>
+    <div>
+      <input type="button" (click)="redirect()" value="Отправить заявку"> <br>
+    </div>
+  </tr>
+  <tr class="right">
+    <td>Должность: {{mechanic.post}} <br>
+      Сервис: {{mechanic.serviceName}} <br>
+      О себе: {{mechanic.about}}<br>
+      Специализация: {{mechanic.makes}}</td>
+
+  </tr>
+  <!--<tr>
+    <table *ngFor="let mechanic of mechanics">
+      <tr>
+        <td> <a [routerLink]="['/mechanic/:id', mechanic.id]">{{mechanic.name}} {{mechanic.surname}}</a></td>
+      </tr>
+      <tr>
+        <a [routerLink]="['/mechanic/:id', mechanic.id]">
+          <img class="mechimage" *ngIf="mechanic.photoHref" [src]="mechanic.photoHref">
+        </a>
+      </tr>
+    </table>
+  </tr>-->
+</table>

@@ -1,0 +1,9 @@
+<h1>Выберете марки, на которых вы специализируетесь</h1>
+  <form #userform="ngForm" (ngSubmit)="submitCars()">
+    <select multiple [(ngModel)]="selectedCars" name="make[]">
+      <option [ngValue]="carName" *ngFor="let carName of (carNames)">
+        {{carName}}
+      </option>
+    </select>
+    <p><input type="submit" value="Сохранить" [disabled]="!userform.valid"></p>
+  </form>

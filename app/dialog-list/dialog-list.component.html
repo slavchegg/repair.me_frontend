@@ -1,0 +1,15 @@
+<h1>Диалоги</h1>
+<table>
+  <tr>
+    <th>Пользователь</th>
+    <th>Тема</th>
+    <th></th>
+    <th colspan="3">&nbsp;</th>
+  </tr>
+  <tr *ngFor="let dialog of (dialogs|async)" (click)="redirect(dialog.dialogId)">
+    <td>{{dialog.interlocutor}}</td>
+    <td>{{dialog.topic}}</td>
+    <td>{{dialog.lastMessage}} </td>
+    <td *ngIf = 'dialog.new == true'> Новое </td>
+  </tr>
+</table>

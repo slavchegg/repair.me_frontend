@@ -1,0 +1,24 @@
+<ng-container *ngIf="mechanic">
+  <h1>Регистрация</h1>
+  <div class="centered">
+    <form #userform="ngForm" (ngSubmit)="submitMechanic()">
+      <!--<input type="hidden" [(ngModel)]="user.id" name="id">-->
+      <p>Имя<br><input [(ngModel)]="mechanic.name" name="name" required maxlength="20"></p>
+      <p>Фамилия<br><input [(ngModel)]="mechanic.surname" name="surname" required maxlength="20"></p>
+      <p>Отчество<br><input [(ngModel)]="mechanic.patronymic" name="patronymic" required maxlength="20"></p>
+      <p>Выберете сервис<br>
+        <select [(ngModel)]="mechanic.service" name="service">
+        <option [ngValue]="service" *ngFor="let service of (services|async)">
+          {{service.name}}
+        </option>
+        </select>
+      </p>
+      <p>Должность<br><input [(ngModel)]="mechanic.post" name="patronymic" required maxlength="20"></p>
+      <p>О себе<br><input [(ngModel)]="mechanic.about" name="patronymic" required maxlength="20"></p>
+      <p>e-mail<br><input type='email'[(ngModel)]="mechanic.mail" name="mail" required></p>
+      <p>Телефон<br><input type='tel'[(ngModel)]="mechanic.phone" name="phone" required [maxLength]="10"></p>
+      <p>Пароль<br><input type='password'[(ngModel)]="mechanic.password" name="password" required minlength="6"></p>
+      <p><input type="submit" value="Сохранить" [disabled]="!userform.valid"></p>
+    </form>
+  </div>
+</ng-container>

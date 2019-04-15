@@ -1,0 +1,33 @@
+<table class="main">
+  <tr>
+    <td rowspan="3" class="image">
+      <img *ngIf="service.photoHref" [src]="service.photoHref">
+    </td>
+    <td><h1>{{service.name}}</h1></td>
+  </tr>
+  <tr>
+    <div>
+      <!--<form #requestform="ngForm"(ngSubmit)="redirect()">-->
+      <!--<p><input type="submit" value="Отправить заявку"></p>-->
+    <!--</form>-->
+      <input type="button" (click)="redirect()" value="Отправить заявку"> <br>
+    </div>
+  </tr>
+  <tr class="right">
+    <td>{{service.address}} <br>
+      Рейтинг: {{service.rating}} <br>
+      Часы работы: {{service.hours}}</td>
+  </tr>
+  <tr>
+    <table *ngFor="let mechanic of mechanics">
+      <tr>
+        <td> <a [routerLink]="['/mechanic', mechanic.id]">{{mechanic.name}} {{mechanic.surname}}</a></td>
+      </tr>
+      <tr>
+        <a [routerLink]="['/mechanic', mechanic.id]">
+        <img class="mechimage" *ngIf="mechanic.photoHref" [src]="mechanic.photoHref">
+        </a>
+      </tr>
+    </table>
+  </tr>
+</table>

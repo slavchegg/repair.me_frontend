@@ -1,0 +1,20 @@
+<a routerLink="/" routerLinkActive="active-link"
+[routerLinkActiveOptions]="{ exact: true }">Главная</a>
+<p></p>
+<a *ngIf="role === 'driver'" routerLink="/request/user" routerLinkActive="active-link">Оставить заяку</a>
+<a *ngIf="role === 'guest'" routerLink="/request/guest" routerLinkActive="active-link">Оставить заявку</a>
+<a *ngIf="role !== 'guest'" routerLink="/messaging/dialogs" routerLinkActive="active-link">Мои сообщения</a>
+<a *ngIf="role === 'mechanic' || role === 'serviceAdmin'" routerLink="/request/get" routerLinkActive="active-link">Мои Заявки</a>
+<p></p>
+<a *ngIf="role === 'guest'" routerLink="auth/login" routerLinkActive="active-link">Вход</a>
+<a *ngIf="role !== 'guest'" routerLink="/auth/logout" routerLinkActive="active-link">Выход</a>
+<a *ngIf="role === 'guest'" routerLink="/registration/driver" routerLinkActive="active-link">Регистрация</a>
+<p></p>
+<a *ngIf="role === 'guest'" routerLink="/registration/mechanic" routerLinkActive="active-link">Стать механиком!</a>
+<a *ngIf="role === 'mechanic' || role === 'serviceAdmin'" routerLink="/registration/specialization" routerLinkActive="active-link">Добавить специализацию</a>
+<a *ngIf="role !== 'guest'" routerLink="/registration/car" routerLinkActive="active-link">Зарегистрировать авто</a>
+<a *ngIf="role === 'mechanic'" routerLink="/registration/service" routerLinkActive="active-link">Зарегистрировать сервис</a>
+<p></p>
+<a routerLink="/services" routerL inkActive="active-link">Найти сервис</a>
+
+

@@ -1,0 +1,28 @@
+<h1>Регистрация авто</h1>
+<div class="centered">
+  <form #userform="ngForm" (ngSubmit)="submitCar()">
+    <p>Марка<br>
+      <select [(ngModel)]="car.make" (ngModelChange)="getModels()" name="make" >
+        <option [ngValue]="carName" *ngFor="let carName of (carNames)">
+          {{carName}}
+        </option>
+      </select>
+    </p>
+    <p>Модель<br>
+      <select [(ngModel)]="car.model" (ngModelChange)="getModifications()" name="carModel">
+        <option [ngValue]="carModel" *ngFor="let carModel of (carModels)">
+          {{carModel}}
+        </option>
+      </select>
+    </p>
+    <p>Модификация<br>
+      <select [(ngModel)]="car.modification" name="carModification">
+        <option [ngValue]="carModification" *ngFor="let carModification of (carModifications)">
+          {{carModification}}
+        </option>
+      </select>
+    </p>
+    <p>VIN<br><input type='tel'[(ngModel)]="car.vin" name="patronymic" required maxlength="20"></p>
+    <p><input type="submit" value="Сохранить" [disabled]="!userform.valid"></p>
+  </form>
+</div>
